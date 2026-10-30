@@ -1,0 +1,21 @@
+# 临时产物与本地预览文件
+artifacts/
+.playwright-mcp/
+
+# 设计稿比对用参考图与重复导出的素材（页面未引用）
+assets/figma/figma-home-*.png
+assets/figma/figma-hero-reference.png
+assets/figma/figma-agent-reference.png
+assets/figma/figma-footer-reference.png
+assets/figma/figma-register-reference.png
+assets/figma/hero-fresh.png
+assets/figma/hero-group.svg
+assets/figma/hero-subtract.svg
+assets/figma/ecosystem-bg.png
+assets/figma/footer-qr-pc.svg
+assets/figma/footer-qr-mobile.svg
+
+# 系统文件
+Thumbs.db
+desktop.ini
+.DS_Store

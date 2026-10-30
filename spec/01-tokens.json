@@ -1,0 +1,49 @@
+{
+  "color": {
+    "黑": "#000000",
+    "白": "#FFFFFF",
+    "浅黑": "#333333",
+    "浅灰": "#666666",
+    "灰": "#999999",
+    "白蓝": "#F5F7F9",
+    "浅白蓝": "#EFF1F6"
+  },
+  "typography": {
+    "fontFamily": "Microsoft YaHei",
+    "fontWeightRegular": "Regular",
+    "fontWeightBold": "Bold",
+    "fontSize1": 14,
+    "fontSize2": 12,
+    "fontSize3": 10,
+    "lineHeight": 1.31982421875,
+    "lineHeightTitle": 1.330078125
+  },
+  "radius": {
+    "6": 6,
+    "8": 8,
+    "16": 16,
+    "100": 100
+  },
+  "spacing": {
+    "4": 4,
+    "6": 6,
+    "8": 8,
+    "12": 12,
+    "14": 14
+  },
+  "size": {
+    "12": 12,
+    "14": 14,
+    "18": 18,
+    "20": 20,
+    "30": 30
+  },
+  "stroke": {
+    "1": 1,
+    "2": 2
+  },
+  "effect": {
+    "shadow": "0px 2px 20px 0px rgba(0, 0, 0, 0.04)",
+    "borderGradient": "linear-gradient(130deg, rgba(58, 167, 255, 1) 1%, rgba(150, 110, 255, 1) 49%, rgba(255, 149, 132, 1) 99%)"
+  }
+}

@@ -584,9 +584,11 @@ img { display: block; }
   font-weight: 700;
   line-height: 37px;
   color: var(--blue);
+  white-space: nowrap;
 }
 
 .metric .num span {
+  margin-left: 8px;
   font-size: 14px;
   font-weight: 700;
   color: var(--ink);

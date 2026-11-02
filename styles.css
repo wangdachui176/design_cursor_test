@@ -573,6 +573,7 @@ img { display: block; }
 }
 
 .metric {
+  position: relative;
   height: 151px;
   padding: 16px;
   border-radius: var(--radius-24);
@@ -602,9 +603,12 @@ img { display: block; }
 }
 
 .metric .note {
-  margin-top: 24px;
+  position: absolute;
+  left: 16px;
+  top: 83px;
+  width: 131px;
   font-size: 12px;
-  line-height: 16px;
+  line-height: 18px;
   color: var(--gray-2);
 }
 

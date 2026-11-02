@@ -182,9 +182,9 @@ img { display: block; }
 
 /* ---------- 导航下拉 ---------- */
 
-.nav-item { position: static; display: flex; align-items: center; }
+.nav-item { position: static; display: flex; align-items: stretch; }
 
-.nav-trigger { position: relative; }
+.nav-trigger { position: relative; align-self: stretch; }
 
 .dropdown {
   position: absolute;

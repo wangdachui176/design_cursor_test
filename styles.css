@@ -135,6 +135,13 @@ img { display: block; }
   align-items: center;
   font-size: 16px;
   white-space: nowrap;
+  color: var(--ink);
+  transition: color .15s ease;
+}
+
+.nav > a:hover,
+.nav .nav-trigger:hover {
+  color: #2563eb;
 }
 
 .nav > a.on::after,
@@ -146,6 +153,15 @@ img { display: block; }
   bottom: 0;
   height: 2px;
   background: var(--ink);
+}
+
+/* 下拉展开时，隐藏其他导航项的选中横条 */
+.nav.menu-open > a.on::after { display: none; }
+
+/* 点击后的当前项保持黑色，压过悬停蓝 */
+.nav > a.on,
+.nav > a.on:hover {
+  color: var(--ink);
 }
 
 .search {

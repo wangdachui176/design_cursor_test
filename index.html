@@ -332,6 +332,7 @@
 
     (function () {
       const item = document.querySelector('.nav-item[data-menu]');
+      const nav = item.closest('.nav');
       const trigger = item.querySelector('.nav-trigger');
       const dropdown = item.querySelector('.dropdown');
       let closeTimer = null;
@@ -339,11 +340,13 @@
       function open() {
         clearTimeout(closeTimer);
         item.classList.add('open');
+        nav.classList.add('menu-open');
         trigger.setAttribute('aria-expanded', 'true');
       }
 
       function close() {
         item.classList.remove('open');
+        nav.classList.remove('menu-open');
         trigger.setAttribute('aria-expanded', 'false');
       }
 

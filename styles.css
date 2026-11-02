@@ -144,6 +144,9 @@ img { display: block; }
   color: #2563eb;
 }
 
+.nav > a.on,
+.nav > a.on:hover { color: var(--ink); }
+
 .nav > a.on::after,
 .nav .nav-item.open > .nav-trigger::after {
   content: "";
@@ -155,14 +158,8 @@ img { display: block; }
   background: var(--ink);
 }
 
-/* 下拉展开时，隐藏其他导航项的选中横条 */
+/* 下拉展开时，隐藏「首页」等非当前触发的选中横条 */
 .nav.menu-open > a.on::after { display: none; }
-
-/* 点击后的当前项保持黑色，压过悬停蓝 */
-.nav > a.on,
-.nav > a.on:hover {
-  color: var(--ink);
-}
 
 .search {
   margin-left: auto;
@@ -214,14 +211,15 @@ img { display: block; }
   border-top: 1px solid #d7d7d7;
   box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
   opacity: 0;
-  visibility: hidden;
+  pointer-events: none;
   transform: translateY(-6px);
-  transition: opacity .18s ease, transform .18s ease, visibility .18s;
+  transition: opacity .18s ease, transform .18s ease;
 }
 
-.nav-item.open .dropdown {
+.nav.menu-open ~ .dropdown,
+.dropdown.open {
   opacity: 1;
-  visibility: visible;
+  pointer-events: auto;
   transform: translateY(0);
 }
 

@@ -997,6 +997,12 @@ img { display: block; }
   height: 178px;
 }
 
+/* 首张卡片图标为 220×178，且左对齐 */
+.growth-card:first-child img {
+  left: 0;
+  width: 220px;
+}
+
 .growth-card h3 {
   position: absolute;
   left: 24px;
@@ -1066,7 +1072,7 @@ img { display: block; }
   display: flex;
   justify-content: center;
   gap: 13px;
-  margin-top: 13px;
+  margin-top: 36px;
 }
 
 .cta .btn {

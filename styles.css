@@ -192,6 +192,7 @@ img { display: block; }
   right: 0;
   top: 100%;
   z-index: 50;
+  height: 496px;
   background: #fff;
   border-top: 1px solid #d7d7d7;
   box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
@@ -208,12 +209,10 @@ img { display: block; }
 }
 
 .dropdown-body {
-  height: 496px;
+  height: 495px;
   padding: 56px 60px 0;
   overflow: hidden;
-}
-
-.dropdown-grid {
+}.dropdown-grid {
   width: 1200px;
   margin: 0 auto;
   display: grid;
@@ -257,62 +256,6 @@ img { display: block; }
   color: var(--gray);
   font-size: 10px;
   line-height: 13px;
-}
-
-.dropdown-notice {
-  height: 80px;
-  display: grid;
-  grid-template-columns: 48px 1fr 1fr 96px;
-  align-items: center;
-  width: min(1200px, calc(100% - 48px));
-  margin: 0 auto;
-  padding-left: 14px;
-  border-top: 1px solid #ececec;
-}
-
-.dn-item {
-  height: 44px;
-  padding: 0 24px;
-  border-right: 1px solid var(--line);
-  overflow: hidden;
-}
-
-.dn-item p {
-  margin: 0;
-  font-size: 14px;
-  line-height: 22px;
-  color: var(--gray);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.dn-item strong {
-  display: inline-block;
-  margin-right: 6px;
-  padding: 0 3px;
-  background: var(--ink);
-  color: #fff;
-  font-size: 8px;
-  line-height: 12px;
-  vertical-align: 2px;
-}
-
-.dn-item time {
-  display: block;
-  margin-top: 4px;
-  font-size: 14px;
-  line-height: 18px;
-  color: var(--gray-2);
-}
-
-.dn-more {
-  display: inline-flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 2px;
-  font-size: 14px;
-  color: var(--gray);
 }
 
 /* ---------- 按钮 ---------- */

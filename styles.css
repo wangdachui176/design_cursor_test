@@ -944,15 +944,18 @@ img { display: block; }
   background: #fff;
 }
 
-.service-card img { width: auto; height: 56px; }
+.service-card img { width: 52px; height: 52px; }
 
 .service-card h3 {
-  margin: 79px 0 0;
+  margin: 83px 0 0;
   font-size: 28px;
   font-weight: 700;
   line-height: 37px;
   color: #333;
 }
+
+/* 首张卡片标题在设计稿中低 5px */
+.service-card:first-child h3 { margin-top: 88px; }
 
 .service-card p {
   margin: 24px 0 0;

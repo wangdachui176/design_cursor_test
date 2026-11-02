@@ -242,20 +242,25 @@ img { display: block; }
   transition: color .15s;
 }
 
-.dropdown-group a:hover { color: var(--ink); }
+.dropdown-group a:has(.tag) {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
 
-.dropdown-group a.hl { color: #0033ff; }
+.dropdown-group a:hover,
+.dropdown-group a.hl:hover { color: #0033ff; }
 
 .dropdown-group .tag {
-  position: absolute;
-  left: 188px;
-  top: 132px;
+  display: inline-flex;
+  align-items: center;
   padding: 2px 8px;
   border-radius: 4px;
   background: #e5e5e5;
   color: var(--gray);
   font-size: 10px;
   line-height: 13px;
+  white-space: nowrap;
 }
 
 /* ---------- 按钮 ---------- */

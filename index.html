@@ -211,19 +211,48 @@
       <h2 class="section-title">多端触达，全域贯通，助力应用快速破圈</h2>
       <p class="section-sub">多端场景 · 全域覆盖</p>
       <div class="agent-panel">
-        <div class="agent-tabs">
-          <a class="on">智能体</a>
-          <a>PC应用</a>
-          <a>移动应用</a>
-          <a>TV应用</a>
+        <div class="agent-tabs" role="tablist">
+          <button class="on" role="tab" aria-selected="true" data-tab="agents">智能体</button>
+          <button role="tab" aria-selected="false" data-tab="pc">PC应用</button>
+          <button role="tab" aria-selected="false" data-tab="mobile">移动应用</button>
+          <button role="tab" aria-selected="false" data-tab="tv">TV应用</button>
         </div>
         <div class="wrap">
-          <div class="agent-copy">
-            <h3>基于 Skills<br />创建智能体能力</h3>
-            <p>开发者可自主创作各类智能体能力，上架后分发至天禧 AI 等联想全生态产品矩阵，覆盖工作、学习、娱乐、生活场景。</p>
-            <a class="btn btn-blue" href="#cta">进入智能体生态
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-            </a>
+          <div class="agent-pane on" data-pane="agents">
+            <div class="agent-copy">
+              <h3>基于 Skills<br />创建智能体能力</h3>
+              <p>开发者可自主创作各类智能体能力，上架后分发至天禧 AI 等联想全生态产品矩阵，覆盖工作、学习、娱乐、生活场景。</p>
+              <a class="btn btn-blue" href="#cta">进入智能体生态
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
+            </div>
+          </div>
+          <div class="agent-pane" data-pane="pc">
+            <div class="agent-copy">
+              <h3>PC应用一站式分发</h3>
+              <p>依托联想海量 PC 终端基座，<br />为 PC 开发者提供安全稳定的分发与曝光通路。</p>
+              <a class="btn btn-blue" href="#cta">了解PC应用分发
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
+            </div>
+          </div>
+          <div class="agent-pane" data-pane="mobile">
+            <div class="agent-copy">
+              <h3>移动应用分发枢纽</h3>
+              <p>覆盖联想手机、平板等安卓设备终端，助力移动应用触达海量用户。</p>
+              <a class="btn btn-blue" href="#cta">了解移动应用分发
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
+            </div>
+          </div>
+          <div class="agent-pane" data-pane="tv">
+            <div class="agent-copy">
+              <h3>大屏应用分发阵地</h3>
+              <p>以电视、智能投影、OTT 盒子为载体，与开发者携手共建繁荣可持续的大屏应用生态。</p>
+              <a class="btn btn-blue" href="#cta">了解TV应用分发
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -449,6 +478,37 @@
 
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') close();
+      });
+    })();
+
+    (function () {
+      const panel = document.querySelector('.agent-panel');
+      const tabs = [...document.querySelectorAll('.agent-tabs button')];
+      const panes = [...document.querySelectorAll('.agent-pane')];
+
+      const backgrounds = {
+        agents: 'assets/figma/agent-panel-bg.png',
+        pc: 'assets/figma/tabs/pc.png',
+        mobile: 'assets/figma/tabs/mobile.png',
+        tv: 'assets/figma/tabs/tv.png'
+      };
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          const key = tab.dataset.tab;
+
+          tabs.forEach(function (t) {
+            const isOn = t === tab;
+            t.classList.toggle('on', isOn);
+            t.setAttribute('aria-selected', isOn ? 'true' : 'false');
+          });
+
+          panes.forEach(function (p) {
+            p.classList.toggle('on', p.dataset.pane === key);
+          });
+
+          panel.style.setProperty('--agent-bg', 'url("' + backgrounds[key] + '")');
+        });
       });
     })();
 

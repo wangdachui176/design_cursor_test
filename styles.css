@@ -819,8 +819,22 @@ img { display: block; }
   height: 474px;
   margin-top: 48px;
   padding-top: 16px;
-  background: url("assets/figma/agent-panel-bg.png") center / 1920px 474px no-repeat;
+  background: #dff7ff;
+  overflow: hidden;
 }
+
+/* 每个 tab 对应一层背景，切换时淡入淡出 */
+.agent-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--agent-bg, url("assets/figma/agent-panel-bg.png")) center / 1920px 474px no-repeat;
+  transition: opacity .28s ease;
+  z-index: 0;
+}
+
+.agent-tabs,
+.agent-panel > .wrap { position: relative; z-index: 1; }
 
 .agent-tabs {
   position: relative;
@@ -841,22 +855,28 @@ img { display: block; }
   background: #d7d7d7;
 }
 
-.agent-tabs a {
+.agent-tabs button {
   position: relative;
   width: 166px;
+  padding: 0;
+  border: 0;
+  background: none;
   display: flex;
   justify-content: center;
   font-size: 18px;
   line-height: 24px;
   color: rgba(0, 0, 0, .6);
+  transition: color .15s ease;
 }
 
-.agent-tabs a.on {
+.agent-tabs button:hover { color: rgba(0, 0, 0, .85); }
+
+.agent-tabs button.on {
   color: var(--ink);
   font-weight: 700;
 }
 
-.agent-tabs a.on::after {
+.agent-tabs button.on::after {
   content: "";
   position: absolute;
   left: 0;
@@ -864,6 +884,20 @@ img { display: block; }
   bottom: 1px;
   height: 2px;
   background: var(--gray);
+}
+
+.agent-pane {
+  display: none;
+}
+
+.agent-pane.on {
+  display: block;
+  animation: agentFadeIn .28s ease;
+}
+
+@keyframes agentFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .agent-copy {

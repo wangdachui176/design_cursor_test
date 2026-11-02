@@ -788,7 +788,10 @@ img { display: block; }
 }
 
 .metric .label {
-  margin-top: 6px;
+  position: absolute;
+  left: 16px;
+  top: 59px;
+  width: 132px;
   font-size: 14px;
   line-height: 18px;
   color: var(--ink);
@@ -797,10 +800,10 @@ img { display: block; }
 .metric .note {
   position: absolute;
   left: 16px;
-  top: 83px;
+  top: 101px;
   width: 131px;
   font-size: 12px;
-  line-height: 18px;
+  line-height: 16px;
   color: var(--gray-2);
 }
 

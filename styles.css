@@ -116,7 +116,12 @@ img { display: block; }
   display: flex;
   align-items: center;
   gap: 16px;
+}
+
+.user-name-wrap {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .badge {
@@ -159,7 +164,7 @@ img { display: block; }
 .logout {
   position: absolute;
   top: calc(100% + 8px);
-  right: 0;
+  left: 0;
   width: 80px;
   height: 34px;
   padding: 0 16px;
@@ -174,7 +179,7 @@ img { display: block; }
   transition: opacity .14s ease;
 }
 
-.user:hover .logout { opacity: 1; pointer-events: auto; }
+.user-name-wrap:hover .logout { opacity: 1; pointer-events: auto; }
 .logout:hover { color: #3b6ff2; }
 
 /* ---------- 主导航 64px ---------- */

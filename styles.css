@@ -167,17 +167,19 @@ img { display: block; }
   margin-left: auto;
   display: flex;
   align-items: center;
-  gap: 10px;
-  width: 238px;
-  height: 40px;
-  padding: 0 10px;
-  background: #fff;
-  border: 1px solid #c4c4c4;
+  gap: 4px;
+  width: 220px;
+  height: 64px;
+  padding: 0 12px;
+  background: #f7f7f7;
   border-radius: 4px;
-  transition: width .18s ease;
+  transition: width .18s ease, padding .18s ease;
 }
 
-.search.open { width: 400px; }
+.search.open {
+  width: 400px;
+  padding: 0 8px 0 10px;
+}
 
 .search input {
   flex: 1;
@@ -187,11 +189,13 @@ img { display: block; }
   background: none;
   color: var(--ink);
   font-size: 14px;
+  line-height: 22px;
 }
 
-.search input::placeholder { color: var(--gray); }
+.search input::placeholder { color: var(--gray-2); }
 
-.search button {
+.search-btn,
+.clear-btn {
   flex: none;
   display: inline-flex;
   padding: 0;
@@ -200,11 +204,14 @@ img { display: block; }
   color: var(--ink-2);
 }
 
+.clear-btn { display: none; }
+.search.open .clear-btn { display: inline-flex; }
+
 /* 搜索建议面板：400 × 344，右侧 4px 滚动条 */
 .search-panel {
   position: absolute;
   top: 100%;
-  left: -1px;
+  left: 0;
   width: 400px;
   height: 344px;
   padding: 4px;
@@ -243,7 +250,7 @@ img { display: block; }
 .search-suggest {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   height: 42px;
   padding: 11px 8px 11px 6px;
   border-radius: 6px;
@@ -256,16 +263,29 @@ img { display: block; }
   cursor: pointer;
 }
 
-.search-suggest:hover,
 .search-suggest.selected {
+  gap: 8px;
   background: #ebf2ff;
   color: var(--ink);
 }
 
+.search-suggest:not(.selected):hover {
+  background: #f5f5f5;
+  color: var(--ink-2);
+}
+
 .search-suggest + .search-suggest { margin-top: 4px; }
+
+.search-empty {
+  padding: 11px 8px 11px 6px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--gray-2);
+}
 
 .sug-tag {
   flex: none;
+  margin-left: 4px;
   padding: 2px 8px;
   border-radius: 4px;
   background: #e5e5e5;

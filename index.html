@@ -107,8 +107,11 @@
       </nav>
       <div class="search" id="site-search-box">
         <input id="site-search" placeholder="请输出您要搜索的内容" aria-label="站内搜索" autocomplete="off" />
-        <button type="button" aria-label="搜索">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7" /><path d="M20 20l-3.6-3.6" /></svg>
+        <button type="button" class="search-btn" aria-label="搜索">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7" /><path d="M20 20l-3.6-3.6" /></svg>
+        </button>
+        <button type="button" class="clear-btn" aria-label="清空搜索">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6L6 18" /></svg>
         </button>
         <div class="search-panel" id="search-panel" role="listbox" aria-label="搜索建议">
           <div class="search-panel-inner">
@@ -121,6 +124,7 @@
             <div class="search-suggest" role="option">北马其顿 North Macedonia</div>
             <div class="search-suggest" role="option">罗马尼亚 Romania</div>
           </div>
+          <div class="search-empty" hidden>未能找到相关结果</div>
         </div>
       </div>
       <a class="admin" href="#cta">管理中心</a>
@@ -345,16 +349,36 @@
       const box = document.getElementById('site-search-box');
       const input = document.getElementById('site-search');
       const panel = document.getElementById('search-panel');
+      const inner = panel.querySelector('.search-panel-inner');
+      const empty = panel.querySelector('.search-empty');
       const suggestions = [...panel.querySelectorAll('.search-suggest')];
 
       function open() { box.classList.add('open'); }
       function close() { box.classList.remove('open'); }
 
-      input.addEventListener('focus', open);
-      input.addEventListener('input', open);
+      function filter() {
+        const q = input.value.trim().toLowerCase();
+        let visible = 0;
+        suggestions.forEach(function (item) {
+          const hit = !q || item.textContent.toLowerCase().indexOf(q) > -1;
+          item.hidden = !hit;
+          if (hit) visible += 1;
+        });
+        inner.hidden = visible === 0;
+        empty.hidden = visible > 0;
+      }
 
-      box.querySelector('button').addEventListener('click', function () {
+      input.addEventListener('focus', open);
+      input.addEventListener('input', function () { open(); filter(); });
+
+      box.querySelector('.search-btn').addEventListener('click', function () {
         open();
+        input.focus();
+      });
+
+      box.querySelector('.clear-btn').addEventListener('click', function () {
+        input.value = '';
+        filter();
         input.focus();
       });
 
@@ -364,7 +388,7 @@
           item.classList.add('selected');
         });
         item.addEventListener('click', function () {
-          input.value = item.textContent.replace('产品', '').trim();
+          input.value = item.firstChild.textContent.trim();
           close();
         });
       });

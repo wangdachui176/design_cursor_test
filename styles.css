@@ -71,8 +71,17 @@ img { display: block; }
   transition: color .15s ease;
 }
 
+.lang-arrow {
+  flex: none;
+  color: #c4c4c4;
+  transition: transform .18s ease, color .15s ease;
+}
+
 .lang:hover,
 .lang-box.open .lang { color: #3b6ff2; }
+
+.lang:hover .lang-arrow { color: #c4c4c4; }
+.lang-box.open .lang-arrow { transform: rotate(180deg); }
 
 .lang-menu {
   position: absolute;

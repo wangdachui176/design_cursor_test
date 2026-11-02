@@ -39,6 +39,8 @@ img { display: block; }
 /* ---------- 顶栏 38px ---------- */
 
 .topbar {
+  position: relative;
+  z-index: 70;
   height: 38px;
   border-bottom: 1px solid var(--line);
   background: #fff;
@@ -54,16 +56,68 @@ img { display: block; }
   font-size: 12px;
 }
 
+.lang-box { position: relative; }
+
 .lang {
   display: inline-flex;
   align-items: center;
   gap: 2px;
+  height: 16px;
+  padding: 0;
   border: 0;
   background: none;
+  color: var(--ink);
   font-size: 12px;
+  transition: color .15s ease;
 }
 
-.user { display: flex; align-items: center; gap: 16px; }
+.lang:hover,
+.lang-box.open .lang { color: #3b6ff2; }
+
+.lang-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  width: 80px;
+  margin-left: -40px;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 0 4px rgba(0, 0, 0, .1);
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .14s ease;
+}
+
+.lang-box.open .lang-menu { opacity: 1; pointer-events: auto; }
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 34px;
+  padding: 0 16px;
+  border: 0;
+  background: #fff;
+  color: var(--gray);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.lang-option:hover { background: #f5f7fa; }
+
+.lang-option.selected {
+  background: #ebf1fe;
+  color: #3b6ff2;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+}
 
 .badge {
   display: inline-flex;
@@ -101,6 +155,27 @@ img { display: block; }
   line-height: 12px;
   text-align: center;
 }
+
+.logout {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 80px;
+  height: 34px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 4px;
+  background: #ebf1fe;
+  color: var(--gray);
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .14s ease;
+}
+
+.user:hover .logout { opacity: 1; pointer-events: auto; }
+.logout:hover { color: #3b6ff2; }
 
 /* ---------- 主导航 64px ---------- */
 
